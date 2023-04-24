@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        color: #333;
+        font-size: 14px;
+        font-family: Microsoft YaHei;
+        line-height: 1;
+        list-style-type: none;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      .blue {
+        color: #3e71ea;
+      }
+
+      .f18 {
+        font-size: 18px;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .item {
+        width: 285px;
+        position: relative;
+        overflow: hidden;
+        height: 305px;
+        background-color: #fff;
+      }
+
+      .img {
+        width: 285px;
+        height: 195px;
+        overflow: hidden;
+      }
+
+      .img img {
+        border-style: none;
+        max-width: 100%;
+      }
+
+      .name {
+        padding: 22px 0 14px 25px;
+      }
+
+      .ul-cls {
+        margin: 0;
+        padding: 0;
+      }
+
+      .detail-info {
+        display: flex;
+        align-items: center;
+        margin: 15px 25px 25px;
+      }
+
+      .detail {
+        left: 0;
+        color: #fff;
+        right: 0;
+        bottom: -305px;
+        opacity: 0;
+        min-height: 271px;
+        padding-top: 38px;
+        position: absolute;
+        transition: all 0.2s linear;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+
+      .info {
+        padding: 0 25px;
+        line-height: 20px;
+      }
+
+      .detail .link {
+        color: #fff;
+        width: 141px;
+        height: 34px;
+        margin: 40px auto 0 auto;
+        line-height: 34px;
+        background-color: #3e71ea;
+      }
+
+      .item:hover .disnone {
+        display: none;
+      }
+
+      .item:hover .img {
+        height: 305px;
+      }
+
+      .item:hover .detail {
+        bottom: 0;
+        opacity: 1;
+      }
+
+      .item:hover .detail .blue {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hot-product3">
+      <a href="javascript:;" target="_blank" class="item">
+        <div class="img">
+          <img src="../assets/img/1.jpg" />
+        </div>
+        <div class="blue f18 name disnone">标题</div>
+        <div class="disnone">
+          <ul class="ul-cls detail-info">
+            <li>
+              <span>占行文字</span>
+            </li>
+          </ul>
+        </div>
+        <div class="detail">
+          <div class="blue f18 name">内标题</div>
+          <ul class="ul-cls detail-info">
+            <li>
+              <span>占行文字</span>
+            </li>
+          </ul>
+          <div class="info">文字描述</div>
+          <div class="text-center link">了解详情</div>
+        </div>
+      </a>
+    </div>
+  </body>
+</html>
