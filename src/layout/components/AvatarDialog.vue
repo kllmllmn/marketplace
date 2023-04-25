@@ -8,8 +8,9 @@
     draggable
     :before-close="handleClose"
     style="min-width: 800px"
+    destroy-on-close
   >
-    <AvatarList @update-avatar="handleUpdate"></AvatarList>
+    <AvatarList @update-avatar="handleUpdate" :curImg="curImg"></AvatarList>
     <!-- <template #footer>
       <span class="dialog-footer">
         <el-button @click="handleClose">取消</el-button>
@@ -22,7 +23,7 @@
 import { ref } from "vue";
 import AvatarList from "./AvatarList.vue";
 const centerDialogVisible = ref(false);
-
+defineProps(["curImg"]);
 const changeVisible = () => {
   centerDialogVisible.value = !centerDialogVisible.value;
 };

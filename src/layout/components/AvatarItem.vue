@@ -3,7 +3,13 @@
     <!-- <el-tooltip effect="light" :content="imgContent" v-if="imgContent">
       <el-avatar :src="imgSrc" shape="square" :size="imgSize" />
     </el-tooltip> -->
-    <el-avatar :src="imgSrc" shape="square" :size="imgSize" class="avatar" />
+    <el-avatar
+      :src="imgSrc"
+      shape="square"
+      :size="imgSize"
+      class="avatar"
+      fit="cover"
+    />
     <slot></slot>
   </div>
 </template>
@@ -23,7 +29,9 @@ defineProps({
 <style scoped lang="less">
 .wrap {
   position: relative;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .avatar {
     cursor: pointer;
   }

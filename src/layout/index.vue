@@ -30,6 +30,7 @@ import Header from "./components/Header.vue";
 <style scoped lang="less">
 .page-container {
   height: 100vh;
+  min-width: 1400px;
   .sider-top {
     height: 50px;
     display: flex;

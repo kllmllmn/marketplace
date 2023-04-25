@@ -5,7 +5,7 @@
       <!-- src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" -->
       <el-tooltip effect="light" content="切换头像" placement="left">
         <el-avatar
-          :src="avatarUrl"
+          :src="curImg.src"
           shape="circle"
           :size="80"
           @click="handleClick"
@@ -13,6 +13,7 @@
       </el-tooltip>
     </div>
     <AvatarDialog
+      :curImg="curImg"
       ref="avatarDialogRef"
       @update-avatar="handleUpdate"
     ></AvatarDialog>
@@ -24,14 +25,14 @@ import AvatarDialog from "./AvatarDialog.vue";
 import { ref } from "vue";
 import imgs from "./avatar";
 const avatarDialogRef = ref();
-const avatarUrl = ref();
-avatarUrl.value = imgs["1.jpg"].src;
+const curImg = ref({});
+curImg.value = imgs["1.jpg"];
 const handleClick = () => {
   avatarDialogRef.value.changeVisible();
 };
 
 const handleUpdate = (item) => {
-  avatarUrl.value = item.src;
+  curImg.value = item;
   avatarDialogRef.value.changeVisible();
 };
 </script>
