@@ -2,9 +2,10 @@
   <div class="wrap">
     <template v-if="!preview">
       <div class="cur-avatar">
-        <AvatarItem :imgSrc="curImg.src"></AvatarItem>
+        <AvatarItem :imgSrc="nowImg.src"></AvatarItem>
         <!-- :imgContent="imgs['1.jpg'].content" -->
       </div>
+      <SFileUpload class="upload" @blob="handleBlob"></SFileUpload>
       <div class="avatar-list">
         <div v-for="item in Object.keys(imgs)" :key="item.src">
           <AvatarItem class="avatar-item" :imgSrc="imgs[item].src">
@@ -29,14 +30,25 @@
 import imgs from "./avatar";
 import AvatarItem from "./AvatarItem.vue";
 import { ElMessage, ElMessageBox } from "element-plus";
-import { ref, toRefs } from "vue";
+import { ref, toRefs, watchEffect } from "vue";
+import SFileUpload from "@/components/SFileUpload/index.vue";
+import { toBase64 } from "@/utils/file";
 const props = defineProps(["curImg"]);
+const nowImg = ref({});
+watchEffect(() => {
+  nowImg.value = props.curImg;
+});
 const preview = ref(false); //预览状态
 const emit = defineEmits(["update-avatar"]);
 const previewImg = ref({});
 const handlePreview = (item) => {
   previewImg.value = item;
   preview.value = true;
+};
+const handleBlob = async (blob) => {
+  let base64Data = await toBase64(blob);
+  // console.log(blob, base64Data, "--");
+  nowImg.value = { src: base64Data };
 };
 const handleClick = (item) => {
   console.log(item);
@@ -63,6 +75,10 @@ const handleClick = (item) => {
 
 <style scoped lang="less">
 .wrap {
+  .upload {
+    display: flex;
+    justify-content: center;
+  }
   .cur-avatar {
     display: flex;
     justify-content: center;

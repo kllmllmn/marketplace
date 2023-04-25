@@ -3,13 +3,7 @@
     <!-- <el-tooltip effect="light" :content="imgContent" v-if="imgContent">
       <el-avatar :src="imgSrc" shape="square" :size="imgSize" />
     </el-tooltip> -->
-    <el-avatar
-      :src="imgSrc"
-      shape="square"
-      :size="imgSize"
-      class="avatar"
-      fit="cover"
-    />
+    <el-avatar :src="imgSrc" shape="square" :size="imgSize" class="avatar" />
     <slot></slot>
   </div>
 </template>

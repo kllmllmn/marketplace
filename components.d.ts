@@ -29,5 +29,6 @@ declare module '@vue/runtime-core' {
     PictureList: typeof import('./src/components/PictureList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SFileUpload: typeof import('./src/components/SFileUpload/index.vue')['default']
   }
 }
