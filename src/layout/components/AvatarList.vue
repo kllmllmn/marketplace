@@ -2,7 +2,12 @@
   <div class="wrap">
     <template v-if="!preview">
       <div class="cur-avatar">
-        <AvatarItem :imgSrc="nowImg.src"></AvatarItem>
+        <AvatarItem :imgSrc="nowImg.src" class="avatar-item">
+          <div class="overlay">
+            <div class="font" @click="handlePreview(nowImg)">预览</div>
+            <div class="font" @click="handleClick(nowImg)">选择</div>
+          </div>
+        </AvatarItem>
         <!-- :imgContent="imgs['1.jpg'].content" -->
       </div>
       <SFileUpload class="upload" @blob="handleBlob"></SFileUpload>
@@ -88,36 +93,36 @@ const handleClick = (item) => {
   .avatar-list {
     display: flex;
     overflow: auto;
-    .avatar-item {
-      margin: 10px;
-      &:hover {
-        .overlay {
-          transition: all 0.6s ease; // 重要-过渡
-          opacity: 0.8;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-weight: bold;
-          color: white;
-          .font {
-            margin: 5px;
-            cursor: pointer;
-            transition: font-size 0.5s ease; // 重要-过渡
-            &:hover {
-              font-size: 24px;
-            }
+  }
+  .avatar-item {
+    margin: 10px;
+    &:hover {
+      .overlay {
+        transition: all 0.6s ease; // 重要-过渡
+        opacity: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: white;
+        .font {
+          margin: 5px;
+          cursor: pointer;
+          transition: font-size 0.5s ease; // 重要-过渡
+          &:hover {
+            font-size: 24px;
           }
         }
       }
-      .overlay {
-        background-color: rgba(0, 0, 0, 0.6);
-        width: 200px;
-        height: 200px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
-      }
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
     }
   }
   .df {
