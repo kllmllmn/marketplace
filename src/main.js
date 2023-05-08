@@ -6,12 +6,15 @@ import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 import App from "./App.vue";
 import router from "./router";
 import ElementPlus from "element-plus";
+import Api from "@/api";
 
 import "element-plus/dist/index.css";
 import "@/assets/styles/reset.css";
 import "@/assets/styles/var.css";
 
+// console.log(Api, "---");
 const app = createApp(App);
+window["GApi"] = Api;
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 app.use(pinia);

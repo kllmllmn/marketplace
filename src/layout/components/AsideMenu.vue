@@ -1,8 +1,8 @@
 <template>
   <el-menu
+    :default-active="defaultActive"
     active-text-color="#ffd04b"
     background-color="#545c64"
-    default-active="in_CYgw6LDwzoefyKStjO"
     text-color="#fff"
     @select="handleSelect"
     unique-opened
@@ -15,8 +15,15 @@
 <script setup>
 import useStore from "@/stores";
 import MenuItem from "./MenuItem.vue";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
 const { menuStore } = useStore();
-
+// 默认高亮
+const defaultActive = computed(() => {
+  // console.log(route.fullPath);
+  return route.fullPath;
+});
 const handleSelect = (index, indexPath, item, routeResult) => {
   // console.log(index, indexPath, item, routeResult);
 };

@@ -5,7 +5,7 @@ import { menuList } from "@/assets/menuList";
 const router = useRouter();
 const { menuStore } = useStore();
 menuStore.setMenuList(menuList);
-console.log(import.meta.env, router.getRoutes(), "routes ----");
+// console.log(import.meta.env, router.getRoutes(), "routes ----");
 </script>
 
 <template>

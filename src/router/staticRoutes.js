@@ -1,7 +1,7 @@
 import { menuList } from "@/assets/menuList";
 // 懒加载 动态导入组件
 let modules = import.meta.glob("../views/**/*.vue");
-console.log(modules, "modules");
+// console.log(modules, "modules");
 let routes = [
   {
     path: "/",

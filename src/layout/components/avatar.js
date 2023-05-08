@@ -5,7 +5,7 @@
 // import Img9 from "@/assets/img/9.jpg";
 // 批量获取图片路径
 const modules = import.meta.globEager("../../assets/img/**/*.*");
-console.log(modules, modules["../../assets/img/2.webp"].default, "imggg");
+// console.log(modules, modules["../../assets/img/2.webp"].default, "imggg");
 // export const Imgs = {
 //   Img1: modules["../../assets/img/dance1.webp"].default,
 //   // Img2,
@@ -38,5 +38,5 @@ for (let [key, val] of Object.entries(modules)) {
     content: getFullFilename(key),
   };
 }
-console.log(imgs);
+// console.log(imgs);
 export default imgs;
