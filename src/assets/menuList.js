@@ -89,4 +89,19 @@ export const menuList = [
       },
     ],
   },
+  {
+    id: nanoid(),
+    name: "table",
+    path: "table",
+    text: "表格",
+    children: [
+      {
+        id: nanoid(),
+        name: "table/common",
+        path: "table/common",
+        text: "普通表格",
+        children: [],
+      },
+    ],
+  },
 ];

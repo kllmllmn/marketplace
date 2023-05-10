@@ -5,7 +5,7 @@
         <AvatarItem :imgSrc="nowImg.src" class="avatar-item">
           <div class="overlay">
             <div class="font" @click="handlePreview(nowImg)">预览</div>
-            <div class="font" @click="handleClick(nowImg)">选择</div>
+            <!-- <div class="font" @click="handleClick(nowImg)">选择</div> -->
           </div>
         </AvatarItem>
         <!-- :imgContent="imgs['1.jpg'].content" -->

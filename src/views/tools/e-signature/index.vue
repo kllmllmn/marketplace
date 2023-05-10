@@ -47,7 +47,7 @@ const init = (event) => {
   const { offsetX, offsetY, pageX, pageY } = mobileStatus
     ? event.changedTouches[0]
     : event;
-  console.log(offsetX, offsetY, pageX, pageY);
+  // console.log(offsetX, offsetY, pageX, pageY);
 
   // 清除以上一次 beginPath 之后的所有路径，进行绘制
   ctx.value.beginPath();
