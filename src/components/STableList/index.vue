@@ -62,3 +62,4 @@ const handleDialogSubmit = (val) => {
 };
 defineExpose({ openDialog });
 </script>
+<style scoped></style>

@@ -1,74 +1,77 @@
 <template>
-  <el-dialog
-    v-model="centerDialogVisible"
-    :title="dialogTitle"
-    width="50%"
-    align-center
-    center
-    draggable
-    :before-close="handleClose"
-  >
-    <el-form
-      ref="formRef"
-      :model="form"
-      :rules="rules"
-      label-width="auto"
-      :disabled="disabled"
+  <div>
+    <el-dialog
+      v-model="centerDialogVisible"
+      :title="dialogTitle"
+      width="50%"
+      align-center
+      center
+      draggable
+      :before-close="handleClose"
+      class="wrap"
     >
-      <template v-for="k in Object.keys(formSourceData)" :key="k">
-        <template v-if="formSourceData[k].writeType == 'input'">
-          <el-form-item
-            :label="formSourceData[k]['label']"
-            :prop="k"
-            v-show="!formSourceData[k].hidden"
-          >
-            <el-input
-              v-model="form[k]"
-              :placeholder="getPlaceHolder(formSourceData[k])"
-            />
-          </el-form-item>
-        </template>
-        <template v-else-if="formSourceData[k].writeType == 'select'">
-          <el-form-item
-            :label="formSourceData[k]['label']"
-            :prop="k"
-            v-show="!formSourceData[k].hidden"
-          >
-            <el-select
-              v-model="form[k]"
-              :placeholder="getPlaceHolder(formSourceData[k])"
+      <el-form
+        ref="formRef"
+        :model="form"
+        :rules="rules"
+        label-width="auto"
+        :disabled="disabled"
+      >
+        <template v-for="k in Object.keys(formSourceData)" :key="k">
+          <template v-if="formSourceData[k].writeType == 'input'">
+            <el-form-item
+              :label="formSourceData[k]['label']"
+              :prop="k"
+              v-show="!formSourceData[k].hidden"
             >
-              <el-option
-                v-for="(item, index) in formSourceData[k].selectOptions"
-                :key="index"
-                :label="item.label"
-                :value="item.value"
+              <el-input
+                v-model="form[k]"
+                :placeholder="getPlaceHolder(formSourceData[k])"
               />
-            </el-select>
-          </el-form-item>
+            </el-form-item>
+          </template>
+          <template v-else-if="formSourceData[k].writeType == 'select'">
+            <el-form-item
+              :label="formSourceData[k]['label']"
+              :prop="k"
+              v-show="!formSourceData[k].hidden"
+            >
+              <el-select
+                v-model="form[k]"
+                :placeholder="getPlaceHolder(formSourceData[k])"
+              >
+                <el-option
+                  v-for="(item, index) in formSourceData[k].selectOptions"
+                  :key="index"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+            </el-form-item>
+          </template>
+          <template v-else-if="formSourceData[k].writeType == 'textarea'">
+            <el-form-item
+              :label="formSourceData[k]['label']"
+              :prop="k"
+              v-show="!formSourceData[k].hidden"
+            >
+              <el-input
+                v-model="form[k]"
+                type="textarea"
+                :placeholder="getPlaceHolder(formSourceData[k])"
+              />
+            </el-form-item>
+          </template>
         </template>
-        <template v-else-if="formSourceData[k].writeType == 'textarea'">
-          <el-form-item
-            :label="formSourceData[k]['label']"
-            :prop="k"
-            v-show="!formSourceData[k].hidden"
-          >
-            <el-input
-              v-model="form[k]"
-              type="textarea"
-              :placeholder="getPlaceHolder(formSourceData[k])"
-            />
-          </el-form-item>
-        </template>
+      </el-form>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="handleClose">取消</el-button>
+          <el-button type="primary" @click="submit"> 确定 </el-button>
+        </span>
       </template>
-    </el-form>
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="handleClose">取消</el-button>
-        <el-button type="primary" @click="submit"> 确定 </el-button>
-      </span>
-    </template>
-  </el-dialog>
+    </el-dialog>
+  </div>
 </template>
 <script setup>
 import { ref, computed, watchEffect, reactive } from "vue";
@@ -178,7 +181,12 @@ const submit = async () => {
 };
 defineExpose({ openDialog });
 </script>
-<style scoped>
+<style scoped lang="less">
+// 使用:deep()改变子组件的样式需要子组件有一个父节点
+:deep(.el-dialog__body) {
+  max-height: 70vh;
+  overflow-y: auto;
+}
 .dialog-footer button:first-child {
   margin-right: 10px;
 }

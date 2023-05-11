@@ -69,3 +69,18 @@ export const columns = [
     prop: "operate",
   },
 ];
+// let columns1 = [];
+// columns1.length = 100;
+// columns1.fill({});
+// let c = columns1.map((item, index) => {
+//   return {
+//     label: index,
+//     prop: index,
+//   };
+// });
+// c.push({
+//   label: "操作",
+//   prop: "operate",
+// });
+// // console.log(c);
+// export const columns = c;
