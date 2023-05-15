@@ -35,7 +35,15 @@ export const menuList = [
     name: "gallery",
     path: "gallery",
     text: "画廊",
-    children: [],
+    children: [
+      {
+        id: nanoid(),
+        name: "gallery/preview",
+        path: "gallery/preview",
+        text: "预览",
+        children: [],
+      },
+    ],
   },
   {
     id: nanoid(),

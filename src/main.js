@@ -11,7 +11,8 @@ import Api from "@/api";
 import "element-plus/dist/index.css";
 import "@/assets/styles/reset.css";
 import "@/assets/styles/var.css";
-
+import "@/assets/styles/element-plus.less";
+import "@/styles/common.less";
 // console.log(Api, "---");
 const app = createApp(App);
 window["GApi"] = Api;
