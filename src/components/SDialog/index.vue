@@ -116,12 +116,6 @@ const getPlaceHolder = (item) => {
     return "请选择" + (item.rewritePlaceholder ?? item.label);
   }
 };
-watchEffect(() => {
-  console.log(
-    "🚀 ~ file: index.vue:47 ~ formSourceData ~ formSourceData:",
-    formSourceData
-  );
-});
 
 // 数据源
 const form = ref({});
@@ -162,7 +156,7 @@ const openDialog = ({ type, row, index, title }) => {
   if (type == "see") {
     disabled.value = true;
   }
-  console.log(row);
+  // console.log(row);
   form.value = row;
   centerDialogVisible.value = true;
 };

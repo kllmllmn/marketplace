@@ -7,4 +7,6 @@
    > 详见 @/layout/components/AvatarList.vue line 7
 
    3、vue 热更新不生效 检查引入的组件名称大小写，路由大小写，写错了页面并不会报错，但是热更新会失效。
+
+   4、引入文件不生效时，可以使用按模块引入的方法 import src from '@/assets/1.mp3'
    ```
