@@ -1,28 +1,37 @@
 <template>
   <div>
     <h1>预览图片、PDF</h1>
-    <h3>图片预览</h3>
-    <img src="@/assets/img/1.jpg" @click="handlePreview($event, 'img')" />
-    <h3>PDF预览</h3>
+    <h3 class="title">一、图片预览</h3>
+    <img
+      src="@/assets/img/9.jpg"
+      @click="handlePreview($event, 'img')"
+      class="img"
+    />
+    <!-- <el-image
+      style="width: 100px; height: 100px"
+      src="@/assets/img/9.jpg"
+      fit="contain"
+    /> -->
+    <h3 class="title">二、PDF预览</h3>
     <div>
       <ol>
         因为 IDM 会拦截可下载的资源，会导致页面无法预览。因此需要禁用
         <li>iframe</li>
-        <iframe src="./static/新建 DOCX 文档.pdf"></iframe>
+        <!-- <iframe src="./static/新建 DOCX 文档.pdf"></iframe> -->
         <li>object</li>
-        <object
+        <!-- <object
           data="./static/新建 DOCX 文档.pdf"
           type="application/pdf"
           width="100%"
           height="100%"
-        ></object>
+        ></object> -->
         <li>embed</li>
-        <embed
+        <!-- <embed
           src="./static/新建 DOCX 文档.pdf"
           type="application/pdf"
           width="100%"
           height="100%"
-        />
+        /> -->
         <li>
           <el-link type="primary" @click="handlePreview($event, 'pdf')"
             >pdfObject</el-link
@@ -62,4 +71,13 @@ const handlePreview = (e, type) => {
 };
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.title {
+  margin: 10px;
+}
+.img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+</style>

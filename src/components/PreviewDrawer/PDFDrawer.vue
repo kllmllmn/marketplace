@@ -8,23 +8,33 @@
     >
       <el-icon @click="mountPDF"><Refresh /></el-icon>
       <!-- 第1步：创建嵌入PDF的容器 -->
-      <div id="pdf">11</div>
+      <div id="pdf"></div>
     </el-drawer>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, watchEffect, onMounted } from "vue";
+import { ref, computed, watchEffect, onMounted, nextTick } from "vue";
 import PDFObject from "pdfobject";
-onMounted(() => {
-  PDFObject.embed("./static/新建 DOCX 文档.pdf", "#pdf");
-});
+// onMounted(async () => {
+//   await nextTick();
+//   PDFObject.embed("./static/新建 DOCX 文档.pdf", "#pdf");
+// });
 const mountPDF = () => {
   PDFObject.embed("./static/新建 DOCX 文档.pdf", "#pdf");
 };
 const drawer = ref(false);
 const isFolded = ref(true); // 已折叠
-
+watchEffect(async () => {
+  console.log(
+    "🚀 ~ file: pdfDrawer.vue:31 ~ watchEffect ~ drawer.value:",
+    drawer.value
+  );
+  if (drawer.value) {
+    await nextTick();
+    mountPDF();
+  }
+});
 const drawer_size = computed(() => {
   return isFolded.value ? "80%" : "100%";
 });
@@ -42,7 +52,7 @@ defineExpose({
 
 <style scoped lang="less">
 .pdfobject-container {
-  height: 500px;
+  height: calc(100% - 56px);
 }
 .pdfobject {
   border: 1px solid #ccc;

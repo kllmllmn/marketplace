@@ -5,7 +5,7 @@
 <script setup>
 import { ref, onMounted, computed, nextTick } from "vue";
 import ImgDrawer from "./ImgDrawer.vue";
-import pdfDrawer from "./pdfDrawer.vue";
+import PDFDrawer from "./PDFDrawer.vue";
 const component_ref = ref();
 const props = defineProps(["drawer_type"]);
 const curInstance = computed(() => {
@@ -13,7 +13,7 @@ const curInstance = computed(() => {
     case "img":
       return ImgDrawer;
     case "pdf":
-      return pdfDrawer;
+      return PDFDrawer;
     default:
       return null;
   }
