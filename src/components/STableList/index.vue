@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <el-table :data="tableData" style="width: 100%" stripe border>
+  <div style="height: 100%">
+    <el-table
+      :data="tableData"
+      style="width: 100%; height: calc(100% - 42px)"
+      stripe
+      border
+    >
       <template v-for="(item, index) in columns" :key="index">
         <el-table-column
           type="index"
@@ -36,6 +41,17 @@
         </template>
       </template>
     </el-table>
+    <el-pagination
+      style="margin-top: 10px"
+      v-model:current-page="currentPage"
+      v-model:page-size="pageSize"
+      :page-sizes="pageSizes"
+      background
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="total"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    />
     <SDialog
       ref="sDialogRef"
       :columns="columns"
@@ -51,7 +67,15 @@ import SDialog from "@/components/SDialog/index.vue";
 import { ref } from "vue";
 
 const props = defineProps(sTableProps);
-const { tableData } = useTable(props);
+const {
+  tableData,
+  currentPage,
+  pageSize,
+  total,
+  pageSizes,
+  handleSizeChange,
+  handleCurrentChange,
+} = useTable(props);
 const sDialogRef = ref();
 
 const openDialog = ({ type, row, index, title }) => {

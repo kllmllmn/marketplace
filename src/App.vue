@@ -1,4 +1,5 @@
 <script setup>
+import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 import { useRouter } from "vue-router";
 import useStore from "@/stores";
 import { menuList } from "@/assets/menuList";
@@ -9,7 +10,9 @@ menuStore.setMenuList(menuList);
 </script>
 
 <template>
-  <router-view></router-view>
+  <el-config-provider :locale="zhCn">
+    <router-view></router-view>
+  </el-config-provider>
 </template>
 
 <style scoped></style>

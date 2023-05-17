@@ -22,6 +22,9 @@ const { menuStore } = useStore();
 // 默认高亮
 const defaultActive = computed(() => {
   // console.log(route.fullPath);
+  // if(route.fullPath=='/'){
+  //   return '/home'
+  // }
   return route.fullPath;
 });
 const handleSelect = (index, indexPath, item, routeResult) => {

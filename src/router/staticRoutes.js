@@ -9,6 +9,7 @@ let routes = [
     component: () => import("@/layout/index.vue"),
     meta: {},
     children: [],
+    redirect: "/home",
   },
 ];
 const generateRoutes = (menuList) => {

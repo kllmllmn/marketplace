@@ -7,7 +7,7 @@
           <div v-for="i in 100" :key="i">目录</div>
         </el-aside>
         <el-main>
-          <MusicTable></MusicTable>
+          <MusicTable style="height: calc(100vh - 260px)"></MusicTable>
         </el-main>
       </el-container>
     </el-container>
