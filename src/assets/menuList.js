@@ -127,4 +127,19 @@ export const menuList = [
       },
     ],
   },
+  {
+    id: "9",
+    name: "utils",
+    path: "utils",
+    text: "工具函数",
+    children: [
+      {
+        id: " 9-0",
+        name: "utils/demo",
+        path: "utils/demo",
+        text: "demo",
+        children: [],
+      },
+    ],
+  },
 ];
