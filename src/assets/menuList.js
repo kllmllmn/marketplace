@@ -95,6 +95,13 @@ export const menuList = [
         text: "电子签名",
         children: [],
       },
+      {
+        id: "6-1",
+        name: "tools/export-word",
+        path: "tools/export-word",
+        text: "带图片导出word",
+        children: [],
+      },
     ],
   },
   {

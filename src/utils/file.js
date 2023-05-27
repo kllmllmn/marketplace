@@ -14,7 +14,19 @@ export const toBase64 = (blob) => {
     };
   });
 };
-
+export const downloadFile = (url, fileName) => {
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+};
+export const downloadBlob = (blobData, filename) => {
+  var url = window.URL.createObjectURL(blobData);
+  downloadFile(url, filename);
+  window.URL.revokeObjectURL(url);
+};
 // /**
 //  * 分片获取md5值
 //  * @param {*} file 文件对象
