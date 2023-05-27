@@ -39,6 +39,10 @@
         </li>
       </ol>
     </div>
+    <h3 class="title">三、docx预览</h3>
+    <el-link type="primary" @click="handlePreview($event, 'docx')"
+      >test.docx</el-link
+    >
     <PreviewDrawer
       ref="preview_drawer_ref"
       :img_src="img_src"
@@ -61,10 +65,8 @@ const handlePreview = (e, type) => {
     case "img":
       img_src.value = e.target.src;
       break;
-    case "pdf":
-      break;
     default:
-      return;
+      break;
   }
   drawer_type.value = type;
   preview_drawer_ref.value.changeVisible();

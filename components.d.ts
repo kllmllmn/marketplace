@@ -9,8 +9,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    copy: typeof import('./src/components/PreviewDrawer/index copy.vue')['default']
+    copy: typeof import('./src/components/PreviewDrawer/PDFDrawer copy.vue')['default']
     DialogFrame: typeof import('./src/components/DialogFrame/index.vue')['default']
+    DocxDrawer: typeof import('./src/components/PreviewDrawer/DocxDrawer.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']

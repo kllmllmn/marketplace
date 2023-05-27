@@ -1,28 +1,58 @@
 <template>
-  <component :is="curInstance" ref="component_ref"></component>
+  <div>
+    <el-drawer
+      v-model="drawer"
+      :with-header="false"
+      :size="drawer_size"
+      :before-close="handleClose"
+      :destroy-on-close="true"
+    >
+      <div style="height: 32px">
+        <el-icon @click="isFolded = !isFolded" size="32">
+          <component :is="isFolded ? 'Fold' : 'Expand'"></component>
+        </el-icon>
+      </div>
+      <component
+        :is="curInstance"
+        ref="component_ref"
+        :img_src="img_src"
+        :drawer="drawer"
+      ></component>
+    </el-drawer>
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted, computed, nextTick } from "vue";
 import ImgDrawer from "./ImgDrawer.vue";
 import PDFDrawer from "./PDFDrawer.vue";
+import DocxDrawer from "./DocxDrawer.vue";
 const component_ref = ref();
-const props = defineProps(["drawer_type"]);
+const props = defineProps(["drawer_type", "img_src"]);
 const curInstance = computed(() => {
-  switch (props.drawer_type) {
-    case "img":
-      return ImgDrawer;
-    case "pdf":
-      return PDFDrawer;
-    default:
-      return null;
+  let type = props.drawer_type;
+  if (["img"].includes(type)) {
+    return ImgDrawer;
+  } else if (["pdf"].includes(type)) {
+    return PDFDrawer;
+  } else if (["docx", "doc"].includes(type)) {
+    return DocxDrawer;
   }
+  return null;
 });
+const isFolded = ref(true); // 已折叠
 
-const changeVisible = async () => {
-  await nextTick();
-  component_ref.value.changeVisible();
+const drawer = ref(false);
+const drawer_size = computed(() => {
+  return isFolded.value ? "80%" : "100%";
+});
+const handleClose = () => {
+  changeVisible();
 };
+const changeVisible = () => {
+  drawer.value = !drawer.value;
+};
+
 defineExpose({
   changeVisible,
 });
