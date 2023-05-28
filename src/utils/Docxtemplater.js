@@ -3,6 +3,8 @@ import PizZip from "pizzip";
 import JSZipUtils from "jszip-utils";
 import ImageModule from "docxtemplater-image-module-free";
 import { downloadBlob } from "./file";
+import { Buffer } from "buffer";
+
 function fileToBase64(file, resolve) {
   const reader = new FileReader();
   reader.readAsDataURL(file);
@@ -67,37 +69,38 @@ function clearblankimg(imgData, resolve) {
   };
 }
 
-// function base64DataURLToArrayBuffer(dataURL) {
-//   const base64Regex = /^data:image\/(png|jpg|svg|svg\+xml);base64,/;
-//   if (!base64Regex.test(dataURL)) {
-//     return false;
-//   }
-//   const stringBase64 = dataURL.replace(base64Regex, "");
-//   let binaryString;
-//   if (typeof window !== "undefined") {
-//     binaryString = window.atob(stringBase64);
-//   } else {
-//     binaryString = new Buffer(stringBase64, "base64").toString("binary");
-//   }
-//   const len = binaryString.length;
-//   const bytes = new Uint8Array(len);
-//   for (let i = 0; i < len; i++) {
-//     const ascii = binaryString.charCodeAt(i);
-//     bytes[i] = ascii;
-//   }
-//   return bytes.buffer;
-// }
-function base64ToArrayBuffer(base64) {
-  const binaryStr = atob(base64);
-  const len = binaryStr.length;
-  const bytes = new Uint8Array(len);
-
-  for (let i = 0; i < len; i++) {
-    bytes[i] = binaryStr.charCodeAt(i);
+function base64DataURLToArrayBuffer(dataURL) {
+  const base64Regex = /^data:image\/(png|jpg|svg|svg\+xml);base64,/;
+  if (!base64Regex.test(dataURL)) {
+    return false;
   }
-
+  const stringBase64 = dataURL.replace(base64Regex, "");
+  let binaryString;
+  if (typeof window !== "undefined") {
+    binaryString = window.atob(stringBase64);
+  } else {
+    // binaryString = new Buffer(stringBase64, "base64").toString("binary");
+    binaryString = Buffer.from(stringBase64, "base64").toString("binary");
+  }
+  const len = binaryString.length;
+  const bytes = new Uint8Array(len);
+  for (let i = 0; i < len; i++) {
+    const ascii = binaryString.charCodeAt(i);
+    bytes[i] = ascii;
+  }
   return bytes.buffer;
 }
+// function base64ToArrayBuffer(base64) {
+//   const binaryStr = atob(base64);
+//   const len = binaryStr.length;
+//   const bytes = new Uint8Array(len);
+
+//   for (let i = 0; i < len; i++) {
+//     bytes[i] = binaryStr.charCodeAt(i);
+//   }
+
+//   return bytes.buffer;
+// }
 
 const editer = {
   exportWordAndImage(docxOptionsData, url, resolve3, exportFilename) {
@@ -119,11 +122,33 @@ const editer = {
         // opts.centered = true; // 图片居中，在word模板中定义方式为{%src}
         opts.fileType = "docx";
         opts.getImage = function (chartId) {
-          return base64ToArrayBuffer(chartId);
+          return base64DataURLToArrayBuffer(chartId);
         };
         opts.getSize = function () {
           return [100, 50];
         };
+        // 避免图片覆盖同行文字,模板中图片占位符需要空出前面文字（包括空格）相应的宽度-----------------
+        opts.getDPI = function () {
+          return 72;
+        };
+        opts.applyStyle = function (image) {
+          // 样式数组中包含了当前字符的样式信息，例如字体大小、行高等
+          const width = `11Tw`; // 获取当前字符宽度
+          return {
+            width: width,
+            height: "auto",
+            floating: {
+              horizontalPosition: {
+                offset: -88, // 将图片向右移动88个像素
+              },
+              verticalPosition: {
+                offset: 0,
+              },
+            },
+          };
+        };
+        // -----------------
+
         const imageModule = new ImageModule(opts);
 
         const zip = new PizZip(content);
@@ -137,7 +162,7 @@ const editer = {
           .resolveData({
             // 这是你导入的数据，这个数据体中的属性或对象一定要和word模板中的插值一样
             ...docxOptionsData,
-            signImg,
+            // signImg,
           })
           .then(() => {
             console.log("Export...");
