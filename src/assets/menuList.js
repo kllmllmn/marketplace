@@ -102,6 +102,13 @@ export const menuList = [
         text: "带图片导出word",
         children: [],
       },
+      {
+        id: "6-2",
+        name: "tools/toggle",
+        path: "tools/toggle",
+        text: "转换",
+        children: [],
+      },
     ],
   },
   {

@@ -2,8 +2,7 @@ import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
 import JSZipUtils from "jszip-utils";
 import ImageModule from "docxtemplater-image-module-free";
-import { downloadBlob } from "./file";
-import { Buffer } from "buffer";
+import { downloadBlob, base64DataURLToArrayBuffer } from "./file";
 
 function fileToBase64(file, resolve) {
   const reader = new FileReader();
@@ -68,39 +67,6 @@ function clearblankimg(imgData, resolve) {
     console.log(x.toDataURL()); //得到最终裁剪出来的base64
   };
 }
-
-function base64DataURLToArrayBuffer(dataURL) {
-  const base64Regex = /^data:image\/(png|jpg|svg|svg\+xml);base64,/;
-  if (!base64Regex.test(dataURL)) {
-    return false;
-  }
-  const stringBase64 = dataURL.replace(base64Regex, "");
-  let binaryString;
-  if (typeof window !== "undefined") {
-    binaryString = window.atob(stringBase64);
-  } else {
-    // binaryString = new Buffer(stringBase64, "base64").toString("binary");
-    binaryString = Buffer.from(stringBase64, "base64").toString("binary");
-  }
-  const len = binaryString.length;
-  const bytes = new Uint8Array(len);
-  for (let i = 0; i < len; i++) {
-    const ascii = binaryString.charCodeAt(i);
-    bytes[i] = ascii;
-  }
-  return bytes.buffer;
-}
-// function base64ToArrayBuffer(base64) {
-//   const binaryStr = atob(base64);
-//   const len = binaryStr.length;
-//   const bytes = new Uint8Array(len);
-
-//   for (let i = 0; i < len; i++) {
-//     bytes[i] = binaryStr.charCodeAt(i);
-//   }
-
-//   return bytes.buffer;
-// }
 
 const editer = {
   exportWordAndImage(docxOptionsData, url, resolve3, exportFilename) {
