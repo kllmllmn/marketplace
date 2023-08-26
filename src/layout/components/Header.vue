@@ -1,6 +1,7 @@
 <template>
   <div class="header">
     <div>面包屑</div>
+    <!-- <HoverAndClickPopover></HoverAndClickPopover> -->
     <div>
       <!-- src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" -->
       <el-tooltip effect="light" content="切换头像" placement="left">
@@ -24,9 +25,11 @@
 import AvatarDialog from "./AvatarDialog.vue";
 import { ref } from "vue";
 import imgs from "./avatar";
+import HoverAndClickPopover from "@/components/HoverAndClickPopover/index.vue";
 const avatarDialogRef = ref();
 const curImg = ref({});
 curImg.value = imgs["1.jpg"];
+
 const handleClick = () => {
   avatarDialogRef.value.changeVisible();
 };

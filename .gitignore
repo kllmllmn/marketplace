@@ -30,3 +30,7 @@ coverage
 # custom
 /public/static/
 /src/assets/music/
+/components.d.ts
+/auto-imports.d.ts
+*.ts
+**/*/out

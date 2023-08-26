@@ -156,4 +156,26 @@ export const menuList = [
       },
     ],
   },
+  {
+    id: "10",
+    name: "demo",
+    path: "demo",
+    text: "demo",
+    children: [
+      {
+        id: " 10-0",
+        name: "demo/demo1",
+        path: "demo/demo1",
+        text: "demo1",
+        children: [],
+      },
+      {
+        id: " 10-1",
+        name: "demo/im",
+        path: "demo/im",
+        text: "聊天室",
+        children: [],
+      },
+    ],
+  },
 ];

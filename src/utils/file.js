@@ -2,8 +2,7 @@ import { Buffer } from "buffer";
 
 /**
  *@description 图片转base64
- *@param {}
- *@return {}
+ *@param {Blob} blob
  */
 export const toBase64 = (blob) => {
   // 可以在回调中return
