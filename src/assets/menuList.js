@@ -23,9 +23,9 @@ export const menuList = [
     children: [
       {
         id: "2-0",
-        name: "animation",
-        path: "videos/animation",
-        text: "动画",
+        name: "ckplayer",
+        path: "videos/ckplayer",
+        text: "ckplayer",
         children: [],
       },
     ],

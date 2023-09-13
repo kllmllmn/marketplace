@@ -34,3 +34,4 @@ coverage
 /auto-imports.d.ts
 *.ts
 **/*/out
+*.mp4
