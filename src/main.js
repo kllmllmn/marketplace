@@ -7,6 +7,7 @@ import App from "./App.vue";
 import router from "./router";
 import ElementPlus from "element-plus";
 import Api from "@/api";
+import VueDOMPurifyHTML from "vue-dompurify-html";
 
 import "element-plus/dist/index.css";
 import "@/assets/styles/reset.css";
@@ -18,6 +19,7 @@ const app = createApp(App);
 window["GApi"] = Api;
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
+app.use(VueDOMPurifyHTML);
 app.use(pinia);
 app.use(router);
 app.use(MotionPlugin);

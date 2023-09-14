@@ -176,6 +176,13 @@ export const menuList = [
         text: "聊天室",
         children: [],
       },
+      {
+        id: " 10-2",
+        name: "demo/highlight",
+        path: "demo/highlight",
+        text: "高亮",
+        children: [],
+      },
     ],
   },
 ];
