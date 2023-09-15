@@ -43,6 +43,9 @@ export default defineConfig({
     }),
   ],
   lintOnSave: false,
+  server: {
+    open: true,
+  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
