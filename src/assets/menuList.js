@@ -183,6 +183,13 @@ export const menuList = [
         text: "高亮",
         children: [],
       },
+      {
+        id: " 10-3",
+        name: "demo/vant",
+        path: "demo/vant",
+        text: "vant",
+        children: [],
+      },
     ],
   },
 ];

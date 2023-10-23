@@ -14,9 +14,14 @@ import "@/assets/styles/reset.css";
 import "@/assets/styles/var.css";
 import "@/assets/styles/element-plus.less";
 import "@/styles/common.less";
+
+import "vant/es/toast/style";
+import "vant/es/dialog/style";
+import "vant/es/notify/style";
+import "vant/es/image-preview/style";
 // console.log(Api, "---");
 const app = createApp(App);
-window["GApi"] = Api;
+window["GAPI"] = Api;
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 app.use(VueDOMPurifyHTML);
