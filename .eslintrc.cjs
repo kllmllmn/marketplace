@@ -10,7 +10,15 @@ module.exports = {
   // "error" or 2 - 将规则视为一个错误 (退出码为1)
   rules: {
     "vue/no-unused-vars": "off",
+    "no-undef": "off",
     "no-unused-vars": "off",
     "vue/multi-word-component-names": "off",
+    "no-empty": "off",
+    "no-prototype-builtins": "off",
+    "no-cond-assign": "off",
+    "no-redeclare": "off",
+    "no-useless-escape": "off",
+    "no-unreachable": "off",
+    "no-mixed-spaces-and-tabs": "off",
   },
 };

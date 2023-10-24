@@ -5553,7 +5553,7 @@
 								this.className += ' ';
 							}
 							this.className += cName;
-						};
+						}
 						return this;
 					};
 					res.removeClass = function(cName) {
@@ -5565,7 +5565,7 @@
 							if (!this.className) {
 								this.removeAttribute('class');
 							}
-						};
+						}
 						return this;
 					};
 					res.searchClass = function(cName) {
@@ -6519,7 +6519,7 @@
 						if(!isUndefined(script.readyState) && script.readyState == 'complete') {
 							doReady();
 						}
-					} catch(event) {};
+					} catch(event) {}
 				}, 10);
 			};
 			var w3c = function() {
@@ -6787,7 +6787,7 @@
 					if(!isUndefined(document.readyState) && document.readyState == 'complete') {
 						doReady();
 					}
-				} catch(event) {};
+				} catch(event) {}
 			}, 10);
 		};
 		var w3c = function() {
@@ -7023,7 +7023,7 @@
 		}
 		ele.listenerList.push([e,f]);
 		return ele;
-	};
+	}
 	/*
 	 * removeListener
 	 * 功能：删除事件监听

@@ -76,7 +76,7 @@
 <script setup>
 import { ref, computed, watchEffect, reactive } from "vue";
 import { ElMessage } from "element-plus";
-import _l from "loadsh";
+import _l from "lodash";
 const props = defineProps({
   columns: {
     type: Array,

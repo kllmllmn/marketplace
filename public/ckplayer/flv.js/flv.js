@@ -1512,7 +1512,7 @@ function once(emitter, name) {
             }
             resolve([].slice.call(arguments));
         }
-        ;
+        
         eventTargetAgnosticAddListener(emitter, name, resolver, { once: true });
         if (name !== 'error') {
             addErrorHandlerIfEventEmitter(emitter, errorListener, { once: true });
@@ -9467,7 +9467,7 @@ var MP4Remuxer = /** @class */ (function () {
                         };
                         silentFrames.push(frame);
                         mdatBytes += frame.size;
-                        ;
+                        
                     }
                     this._audioNextDts = curRefDts + refSampleDuration;
                 }

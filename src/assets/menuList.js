@@ -190,6 +190,13 @@ export const menuList = [
         text: "vant",
         children: [],
       },
+      {
+        id: " 10-4",
+        name: "demo/UIDesign",
+        path: "demo/UIDesign",
+        text: "UI组件封装",
+        children: [],
+      },
     ],
   },
 ];
