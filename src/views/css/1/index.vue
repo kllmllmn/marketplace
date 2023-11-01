@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap flex-center">
+  <div class="wrap flx-center">
     <h1>background animation</h1>
   </div>
 </template>

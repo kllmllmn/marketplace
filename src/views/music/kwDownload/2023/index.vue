@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <el-container>
-      <el-header class="layout-header flex-center">观海</el-header>
+      <el-header class="layout-header flx-center">观海</el-header>
       <el-container>
         <el-aside class="layout-aside">
           <div v-for="i in 100" :key="i">目录</div>

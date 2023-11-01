@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="tab-title">cliboard</div>
     <el-input v-model="inputVal">
       <template #suffix>
         <el-icon @click="handleCopy(inputVal)"><CopyDocument /></el-icon>

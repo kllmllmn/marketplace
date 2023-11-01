@@ -199,9 +199,9 @@ export const menuList = [
       },
       {
         id: " 10-5",
-        name: "demo/cliboard",
-        path: "demo/cliboard",
-        text: "复制",
+        name: "demo/VueUse",
+        path: "demo/VueUse",
+        text: "VueUse",
         children: [],
       },
     ],

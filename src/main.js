@@ -13,7 +13,10 @@ import "element-plus/dist/index.css";
 import "@/assets/styles/reset.css";
 import "@/assets/styles/var.css";
 import "@/assets/styles/element-plus.less";
+import "@/styles/var.css";
+import "@/styles/reset.less";
 import "@/styles/common.less";
+import "@/styles/custom.less";
 
 import "vant/es/toast/style";
 import "vant/es/dialog/style";

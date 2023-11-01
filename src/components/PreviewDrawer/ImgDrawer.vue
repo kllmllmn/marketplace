@@ -10,7 +10,7 @@
       旋转90°<el-icon class="icon"><RefreshRight /></el-icon>
     </el-button>
   </div>
-  <div class="img-wrap flex-center">
+  <div class="img-wrap flx-center">
     <img :src="img_src" class="img" />
   </div>
 </template>
