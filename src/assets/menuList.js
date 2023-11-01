@@ -197,6 +197,13 @@ export const menuList = [
         text: "UI组件封装",
         children: [],
       },
+      {
+        id: " 10-5",
+        name: "demo/cliboard",
+        path: "demo/cliboard",
+        text: "复制",
+        children: [],
+      },
     ],
   },
 ];
