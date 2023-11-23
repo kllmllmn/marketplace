@@ -204,6 +204,13 @@ export const menuList = [
         text: "VueUse",
         children: [],
       },
+      {
+        id: " 10-6",
+        name: "demo/XScroll",
+        path: "demo/XScroll",
+        text: "XScroll-滚轮控制横向滚动",
+        children: [],
+      },
     ],
   },
 ];

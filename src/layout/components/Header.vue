@@ -28,7 +28,7 @@ import imgs from "./avatar";
 import HoverAndClickPopover from "@/components/HoverAndClickPopover/index.vue";
 const avatarDialogRef = ref();
 const curImg = ref({});
-curImg.value = imgs["1.jpg"];
+curImg.value = imgs["9.jpg"];
 
 const handleClick = () => {
   avatarDialogRef.value.changeVisible();
