@@ -211,6 +211,13 @@ export const menuList = [
         text: "XScroll-滚轮控制横向滚动",
         children: [],
       },
+      {
+        id: " 10-7",
+        name: "demo/echarts",
+        path: "demo/echarts",
+        text: "echarts",
+        children: [],
+      },
     ],
   },
 ];
