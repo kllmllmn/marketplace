@@ -1,5 +1,6 @@
 <template>
   <van-button type="primary">234</van-button>
+  <!-- F12 选择mobile模式可以签名 -->
   <van-signature ref="signatureRef" @submit="onSubmit" @clear="onClear" />
   <!-- <van-image v-if="image" :src="image" /> -->
   <div class="box"></div>
@@ -16,7 +17,7 @@ const initCanvas = () => {
   let styleWidth = parentEl.clientWidth;
   let styleHeight = parentEl.clientHeight;
   const ctx = canvas.getContext("2d");
-  ctx.width = styleWidth * devicePixelRatio;
+  ctx.width = styleWidth * devicePixelRatio; // 原始尺寸 = 样式尺寸 * 缩放倍率
   ctx.height = styleHeight * devicePixelRatio;
 };
 const onSubmit = (data) => {
